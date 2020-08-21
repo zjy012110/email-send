@@ -1,7 +1,7 @@
 <!--
  * @Description: 说明
  * @Date: 2020-08-03 16:56:22
- * @LastEditTime: 2020-08-21 15:07:35
+ * @LastEditTime: 2020-08-21 15:28:40
  * @FilePath: \test\email-send\README.md
 -->
 **当前阶段：**  
@@ -22,4 +22,4 @@
 
 启动项目：
 `node server.js`  
-http://127.0.0.1:3000/form  
+http://127.0.0.1:3000/index  
