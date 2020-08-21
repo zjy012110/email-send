@@ -1,8 +1,8 @@
 <!--
  * @Description: 说明
  * @Date: 2020-08-03 16:56:22
- * @LastEditTime: 2020-08-14 15:22:02
- * @FilePath: \test\READEME.md
+ * @LastEditTime: 2020-08-21 15:07:35
+ * @FilePath: \test\email-send\README.md
 -->
 **当前阶段：**  
 1.0  
@@ -11,11 +11,15 @@
 - [x] js内部配置登录邮箱  
 - [x] 表格正文表格  
 - [x] 发送邮件  
+- [x] 提供导入界面  
 
 **未完成：**  
-- [ ] 提供导入界面  
 - [ ] 提供登录界面  
 - [ ] 正文内容优化  
 
 **后续：**  
 - [ ] 邮件标题正文提供自定义
+
+启动项目：
+`node server.js`  
+http://127.0.0.1:3000/form  
