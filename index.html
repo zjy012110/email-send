@@ -1,8 +1,8 @@
 <!--
  * @Description: 文件上传页面
  * @Date: 2020-08-21 15:03:58
- * @LastEditTime: 2020-08-21 15:04:27
- * @FilePath: \test\email-send\index.html
+ * @LastEditTime: 2020-09-08 17:07:30
+ * @FilePath: \email-send\index.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -11,14 +11,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    body .main {
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .main {
+      display: grid;
+      place-items: center;
+      width: 500px;
+    }
+
+    .main .login {}
+
+    .main .upload {}
+  </style>
 </head>
 
 <body>
-  <form action="/upload" method="post" enctype="multipart/form-data">
-    <h2>上传</h2>
-    <input type="file" name="file">
-    <input type="submit" value="提交">
-  </form>
+  <main class="main">
+    <div class="login">
+      <form action="/login" method="post" enctype="multipart/form-data">
+        <h2>登录</h2>
+        <input type="email" name="email" required placeholder="Email">
+        <input type="password" name="password" required placeholder="password">
+        <input type="submit" value="提交">
+      </form>
+    </div>
+    <div class="upload">
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <h2>上传</h2>
+        <input type="file" name="file">
+        <input type="submit" value="提交">
+      </form>
+    </div>
+  </main>
 </body>
 
 </html>

@@ -1,16 +1,26 @@
 /*
  * @Description: 上传请求
  * @Date: 2020-08-14 15:32:09
- * @LastEditTime: 2020-08-21 15:05:08
+ * @LastEditTime: 2020-09-08 18:44:10
  * @FilePath: \test\email-send\server.js
  */
 var fs = require('fs');
 var express = require('express');
 var multer = require('multer');
 var handle = require('./lib/handle');
+var login = require('./lib/login');
+const bodyParser = require("body-parser");
+var MSG = {
+  success: { ret_code: 'C0000', ret_message: '处理成功' }
+}
 
 var app = express();
 // var upload = multer({ dest: 'upload/' });
+
+// 解析application/json数据
+var jsonParser = bodyParser.json();
+// 解析application/x-www-form-urlencoded数据
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 var createFolder = function (folder) {
   try {
@@ -50,13 +60,18 @@ app.post('/upload', upload.single('file'), function (req, res, next) {
   console.log('原始文件名：%s', file.originalname);
   console.log('文件大小：%s', file.size);
   console.log('文件保存路径：%s', file.path);
-
-  res.send({ ret_code: '0', ret_message: '处理成功' });
-
+  res.send(MSG.success);
   // 读取文件
   handle.readFile(readFileName)
   // 发送邮件
   handle.creatContent()
+});
+
+// 登录
+app.post('/login', urlencodedParser, function (req, res, next) {
+  console.log(req.body);
+  login.getInfo(req.body)
+  res.json(MSG.success);
 });
 
 app.get('/form', function (req, res, next) {
